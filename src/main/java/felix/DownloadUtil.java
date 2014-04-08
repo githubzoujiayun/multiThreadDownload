@@ -28,7 +28,7 @@ public class DownloadUtil {
         contentLength = httpURLConnection.getContentLength();
         int partSize = contentLength / threadNum + 1;
         RandomAccessFile randomAccessFile = new RandomAccessFile(targetFileName, "rw");
-        randomAccessFile.setLength(partSize);
+        randomAccessFile.setLength(contentLength);
         randomAccessFile.close();
         httpURLConnection.disconnect();
         for (int i = 0; i < threadNum; i++) {
